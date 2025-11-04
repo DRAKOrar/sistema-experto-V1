@@ -22,8 +22,12 @@ public class ExpertController {
         return ResponseEntity.ok(service.getQuestions(domainCode));
     }
 
+    // ExpertController.java (solo el método diagnose)
     @PostMapping("/diagnose")
-    public ResponseEntity<DiagnosisResponse> diagnose(@RequestBody DiagnosisRequest request) {
-        return ResponseEntity.ok(service.diagnose(request));
+    public ResponseEntity<DiagnosisResponse> diagnose(
+            @RequestBody DiagnosisRequest request,
+            @RequestParam(name = "trace", defaultValue = "false") boolean trace) {
+        return ResponseEntity.ok(service.diagnose(request, trace));
     }
+
 }

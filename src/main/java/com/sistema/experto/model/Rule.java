@@ -26,4 +26,7 @@ public class Rule {
     @Column(nullable=false)
     private int priority; // menor número = más prioridad
 
+    // Nuevo: factor de certeza 0..1 (por defecto 1.0)
+    @Column(nullable=false, columnDefinition = "numeric(3,2) default 1.0")
+    private double certainty = 1.0;
 }
